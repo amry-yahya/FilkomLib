@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BorrowingController;
+use App\Http\Controllers\ReturnController;
+use App\Models\Borrowing;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use PhpParser\Node\Stmt\Return_;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +24,9 @@ Route::get('/', function () {
 });
 Auth::routes();
 Route::resource('book', BookController::class)->middleware('auth');
+Route::resource('borrowing', BorrowingController::class)->middleware('auth');
+Route::resource('return', ReturnController::class)->middleware('auth');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', function () {
+    return redirect('/book');
+});
