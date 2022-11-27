@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
-Route::resource('book', BookController::class);
+Auth::routes();
+Route::resource('book', BookController::class)->middleware('auth');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
