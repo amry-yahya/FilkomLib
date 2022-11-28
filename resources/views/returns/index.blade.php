@@ -49,6 +49,8 @@
                                                 Pengembalian belum diajukan
                                                 @endif
                                             </form>
+                                            <a href="{{ route('borrowing.show', $return->user_id) }}"
+                                                class="btn btn-sm btn-primary">LIHAT PROFIL</a>
                                         </td>
                                     </tr>
                                 @empty

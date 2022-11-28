@@ -19,6 +19,7 @@ class PermissionSeeder extends Seeder
     {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
+        Permission::create(['name' => 'view books']);
         Permission::create(['name' => 'create books']);
         Permission::create(['name' => 'edit books']);
         Permission::create(['name' => 'delete books']);
@@ -26,12 +27,14 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'manage borrowings']);
 
         $adminRole = Role::create(['name' => 'admin']);
+        $adminRole->givePermissionTo('view books');
         $adminRole->givePermissionTo('create books');
         $adminRole->givePermissionTo('edit books');
         $adminRole->givePermissionTo('delete books');
         $adminRole->givePermissionTo('manage borrowings');
 
         $userRole = Role::create(['name' => 'user']);
+        $userRole->givePermissionTo('view books');
         $userRole->givePermissionTo('borrow books');
 
 

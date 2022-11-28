@@ -33,14 +33,15 @@
 
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                        <form action="{{ route('user.update', $user->id) }}" method="POST">
+                        <h3 class="text-center">Data Pengguna</h3>
+                        <form action="" method="POST">
                             @csrf
                             @method('PUT')
 
                             <div class="form-group">
-                                <label for="code">Kode</label>
+                                <label for="code">Nama</label>
                                 <input type="text" class="form-control @error('code') is-invalid @enderror"
-                                    name="code" value="{{ old('code', $user->name) }}" required>
+                                    name="code" value="{{ old('code', $user->name) }}" disabled>
 
                                 <!-- error message untuk code -->
                                 @error('code')
@@ -51,9 +52,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Judul</label>
+                                <label for="title">NIM</label>
                                 <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                    name="title" value="{{ old('title', $user->nim) }}" required>
+                                    name="title" value="{{ old('title', $user->nim) }}" disabled>
 
                                 <!-- error message untuk title -->
                                 @error('title')
@@ -64,9 +65,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="writer">Penulis</label>
+                                <label for="writer">e-Mail</label>
                                 <input type="text" class="form-control @error('writer') is-invalid @enderror"
-                                    name="writer" value="{{ old('writer', $user->email) }}" required>
+                                    name="writer" value="{{ old('writer', $user->email) }}" disabled>
 
                                 <!-- error message untuk writer -->
                                 @error('writer')
@@ -75,10 +76,6 @@
                                 </div>
                                 @enderror
                             </div>
-
-
-                            <button type="submit" class="btn btn-md btn-primary">Update</button>
-                            <a href="{{ route('user.index') }}" class="btn btn-md btn-secondary">back</a>
                         </form>
                     </div>
                 </div>

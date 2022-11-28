@@ -32,11 +32,13 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @can('viewbooks', Book::class)
                     <ul class="navbar-nav">
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ url('/book') }}">Buku</a>
                         </li>
                     </ul>
+                    @endcan
                     @can('manage borrowings', Borrowing::class)
                     <ul class="navbar-nav">
                         <li class="nav-item active">

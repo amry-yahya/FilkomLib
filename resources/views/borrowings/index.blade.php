@@ -47,7 +47,7 @@
                                             <input type="number" value="{{ $borrowing->user_id }}" name="user_id" hidden>
                                             <input type="number" value="{{ $borrowing->user_nim }}" name="user_nim" hidden>
                                             <button type="submit" class="btn btn-sm btn-success">SETUJUI PEMINJAMAN</button>
-                                            <a href="{{ route('user.show', $borrowing->user_id) }}"
+                                            <a href="{{ route('borrowing.show', $borrowing->user_id) }}"
                                                 class="btn btn-sm btn-primary">LIHAT PROFIL</a>
                                         </form>
                                     </td>

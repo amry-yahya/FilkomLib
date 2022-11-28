@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Borrowing;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BorrowingController extends Controller
@@ -83,5 +84,10 @@ class BorrowingController extends Controller
                     'error' => 'Some problem has occured, please try again'
                 ]);
         }
+    }
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+        return view('user.show', compact('user'));
     }
 }
