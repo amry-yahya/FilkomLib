@@ -22,7 +22,7 @@ class CreateBorrowingsTable extends Migration
             $table->boolean("accept_return");
             $table->date("date");
             $table->date("date_return");
-            
+            $table->boolean("propose_return");
         });
     }
 

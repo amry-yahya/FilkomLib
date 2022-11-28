@@ -38,7 +38,7 @@
                                     <td>{{ $borrowing->date }}</td>
                                     <td>{{ $borrowing->date_return }}</td>
                                     <td>
-                                        <form action="{{ route('borrowing.update',$borrowing->id) }}" method="POST">
+                                        <form action="{{ route('myborrowing.update',$borrowing->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             <input type="number" value="{{ $borrowing->book_id }}" name="book_id" hidden>

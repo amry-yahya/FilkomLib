@@ -41,7 +41,11 @@
                                                 action="{{ route('return.destroy', $return->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
+                                                @if ($return->propose_return)
                                                 <button type="submit" class="btn btn-sm btn-success">SETUJUI PENGEMBALIAN</button>
+                                                @else 
+                                                Pengembalian belum diajukan
+                                                @endif
                                             </form>
                                         </td>
                                     </tr>

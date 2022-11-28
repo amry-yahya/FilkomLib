@@ -28,6 +28,7 @@ class BorrowingController extends Controller
             'accept_return' => false,
             'date' => date("Y-m-d"),
             'date_return' => date('Y-m-d', strtotime(date('Y-m-d'). ' +14 days')),
+            'propose_return' => false,
         ]);
 
         $book = Book::findOrFail($borrowing->book_id);
@@ -63,6 +64,7 @@ class BorrowingController extends Controller
             'accept_return' => false,
             'date' => date("Y-m-d"),
             'date_return' => date('Y-m-d', strtotime(date('Y-m-d'). ' +14 days')),
+            'propose_return' => false,
         ]);
 
         if ($borrowing) {
