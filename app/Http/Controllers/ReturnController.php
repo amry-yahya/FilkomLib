@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Borrowing;
 use Illuminate\Http\Request;
 
@@ -17,16 +18,20 @@ class ReturnController extends Controller
     {
         $borrowing = Borrowing::findOrFail($id);
         $borrowing->delete();
+        $book = Book::findOrFail($borrowing->book_id);
 
+        $book->update([
+            'isBorrowed' => false,
+        ]);
         if ($borrowing) {
             return redirect()
-                ->route('borrowing.index')
+                ->route('return.index')
                 ->with([
                     'success' => 'borrowing has been deleted successfully'
                 ]);
         } else {
             return redirect()
-                ->route('borrowing.index')
+                ->route('return.index')
                 ->with([
                     'error' => 'Some problem has occurred, please try again'
                 ]);

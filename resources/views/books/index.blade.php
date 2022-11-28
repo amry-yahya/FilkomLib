@@ -20,11 +20,14 @@
 
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
+                        @can('create books', Book::class)
                         <a href="{{ route('book.create') }}" class="btn btn-md btn-success mb-3 float-right">Tambah Buku</a>
+                        @endcan
 
                         <table class="table table-bordered mt-1">
                             <thead>
                                 <tr>
+                                    <th scope="col">Kode</th>
                                     <th scope="col">Judul</th>
                                     <th scope="col">Penulis</th>
                                     <th scope="col">Tahun Terbit</th>
@@ -34,10 +37,12 @@
                             <tbody>
                                 @forelse ($books as $book)
                                     <tr>
-                                        <td>{{ $book->title }}</td>
                                         <td>{{ $book->code }}</td>
+                                        <td>{{ $book->title }}</td>
+                                        <td>{{ $book->writer }}</td>
                                         <td>{{ $book->year }}</td>
                                         <td class="text-center">
+                                            @can('edit books', Buku::class)
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                 action="{{ route('book.destroy', $book->id) }}" method="POST">
                                                 <a href="{{ route('book.edit', $book->id) }}"
@@ -46,12 +51,15 @@
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                             </form>
+                                            @endcan
+                                            @can('borrow books', Buku::class)
                                             <form action="{{ route('borrowing.store') }}" method="POST">
                                                 @csrf
                                                 <input type="number" value="{{ $book->id }}" name="book_id" hidden>
                                                 <input type="number" value="{{ auth()->user()->id }}" name="user_id" hidden>
                                                 <button type="submit" class="btn btn-sm btn-success">PINJAM</button>
                                             </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @empty

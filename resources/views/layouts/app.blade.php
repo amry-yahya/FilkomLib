@@ -37,6 +37,7 @@
                             <a class="nav-link" href="{{ url('/book') }}">Buku</a>
                         </li>
                     </ul>
+                    @can('manage borrowings', Borrowing::class)
                     <ul class="navbar-nav">
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ url('/borrowing') }}">Peminjaman</a>
@@ -47,7 +48,7 @@
                             <a class="nav-link" href="{{ url('/return') }}">Pengembalian</a>
                         </li>
                     </ul>
-
+                    @endcan
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->

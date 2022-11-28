@@ -38,19 +38,7 @@
                             @method('PUT')
 
                             <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                    name="title" value="{{ old('title', $book->title) }}" required>
-
-                                <!-- error message untuk title -->
-                                @error('title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="code">code</label>
+                                <label for="code">Kode</label>
                                 <input type="text" class="form-control @error('code') is-invalid @enderror"
                                     name="code" value="{{ old('code', $book->code) }}" required>
 
@@ -63,11 +51,22 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="writer">writer</label>
-                                <textarea
-                                    name="writer" id="writer"
-                                    class="form-control @error('writer') is-invalid @enderror" name="writer" id="writer"
-                                    rows="5" required>{{ old('writer', $book->writer) }}</textarea>
+                                <label for="title">Judul</label>
+                                <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                    name="title" value="{{ old('title', $book->title) }}" required>
+
+                                <!-- error message untuk title -->
+                                @error('title')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="writer">Penulis</label>
+                                <input type="text" class="form-control @error('writer') is-invalid @enderror"
+                                    name="writer" value="{{ old('writer', $book->writer) }}" required>
 
                                 <!-- error message untuk writer -->
                                 @error('writer')
@@ -76,9 +75,10 @@
                                 </div>
                                 @enderror
                             </div>
+
                             <div class="form-group">
-                                <label for="year">year</label>
-                                <input type="text" class="form-control @error('year') is-invalid @enderror"
+                                <label for="year">Tahun Terbit</label>
+                                <input type="number" class="form-control @error('year') is-invalid @enderror"
                                     name="year" value="{{ old('year', $book->year) }}" required>
 
                                 <!-- error message untuk year -->

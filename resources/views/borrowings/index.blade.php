@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@can('manage borrowings', Borrowing::class)
     <div class="container mt-5">
         
         <div class="row">
@@ -25,7 +26,8 @@
                                 <tr>
                                     <th scope="col">user_id</th>
                                     <th scope="col">book_id</th>
-                                    <th scope="col">setujui peminjaman</th>
+                                    <th scope="col">tanggal peminjaman</th>
+                                    <th scope="col">deadline pengembalian</th>
                                     <th scope="col">aksi</th>
                                 </tr>
                             </thead>
@@ -34,20 +36,21 @@
                                 <tr>
                                     <td>{{ $borrowing->user_id }}</td>
                                     <td>{{ $borrowing->book_id }}</td>
-                                    <td>{{ $borrowing->accept_borrow }}</td>
+                                    <td>{{ $borrowing->date }}</td>
+                                    <td>{{ $borrowing->date_return }}</td>
                                     <td>
                                         <form action="{{ route('borrowing.update',$borrowing->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             <input type="number" value="{{ $borrowing->book_id }}" name="book_id" hidden>
                                             <input type="number" value="{{ $borrowing->user_id }}" name="user_id" hidden>
-                                            <button type="submit" class="btn btn-sm btn-success">SETUJUI</button>
+                                            <button type="submit" class="btn btn-sm btn-success">SETUJUI PEMINJAMAN</button>
                                         </form>
                                     </td>
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td class="text-center text-mute" colspan="4">Data borrowing tidak tersedia</td>
+                                    <td class="text-center text-mute" colspan="4">Data tidak tersedia</td>
                                 </tr>
                                 @endforelse
                             </tbody>
@@ -60,5 +63,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+@endcan
 @endsection

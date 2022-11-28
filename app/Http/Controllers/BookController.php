@@ -10,7 +10,7 @@ class BookController extends Controller
     //
     public function index()
     {
-        $books = Book::latest()->get();
+        $books = Book::latest()->where('isBorrowed','=',false)->get();
         return view('books.index', compact('books'));
     }
     public function create()
@@ -30,6 +30,7 @@ class BookController extends Controller
             'code' => $request->code,
             'writer' => $request->writer,
             'year' => $request->year,
+            'isBorrowed' => false,
         ]);
 
         if ($book) {
@@ -57,7 +58,7 @@ class BookController extends Controller
         $this->validate($request, [
             'title' => 'required|string|max:155',
             'code' => 'required',
-            'writer' => 'required'
+            'writer' => 'required',
         ]);
 
         $book = Book::findOrFail($id);
@@ -67,6 +68,7 @@ class BookController extends Controller
             'code' => $request->code,
             'writer' => $request->writer,
             'year' => $request->year,
+            'isBorrowed' => false,
         ]);
 
         if ($book) {

@@ -41,7 +41,7 @@
                                                 action="{{ route('return.destroy', $return->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                                <button type="submit" class="btn btn-sm btn-success">SETUJUI PENGEMBALIAN</button>
                                             </form>
                                         </td>
                                     </tr>

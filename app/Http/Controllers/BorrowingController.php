@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Borrowing;
 use Illuminate\Http\Request;
 
@@ -25,20 +26,28 @@ class BorrowingController extends Controller
             'book_id' => $request->book_id,
             'accept_borrow' => false,
             'accept_return' => false,
+            'date' => date("Y-m-d"),
+            'date_return' => date('Y-m-d', strtotime(date('Y-m-d'). ' +14 days')),
+        ]);
+
+        $book = Book::findOrFail($borrowing->book_id);
+
+        $book->update([
+            'isBorrowed' => true,
         ]);
 
         if ($borrowing) {
             return redirect()
-                ->route('borrowing.index')
+                ->route('book.index')
                 ->with([
-                    'success' => 'New borrowing has been created successfully'
+                    'success' => 'Peminjaman berhasil dilakukan'
                 ]);
         } else {
             return redirect()
                 ->back()
                 ->withInput()
                 ->with([
-                    'error' => 'Some problem occurred, please try again'
+                    'error' => 'Peminjaman gagal dilakukan'
                 ]);
         }
     }
@@ -52,6 +61,8 @@ class BorrowingController extends Controller
             'book_id' => $request->book_id,
             'accept_borrow' => true,
             'accept_return' => false,
+            'date' => date("Y-m-d"),
+            'date_return' => date('Y-m-d', strtotime(date('Y-m-d'). ' +14 days')),
         ]);
 
         if ($borrowing) {

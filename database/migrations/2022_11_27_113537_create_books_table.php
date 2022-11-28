@@ -19,6 +19,7 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->string('writer');
             $table->integer('year');
+            $table->boolean('isBorrowed');
             $table->timestamps();
         });
     }
