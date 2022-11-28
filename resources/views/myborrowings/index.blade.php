@@ -43,7 +43,11 @@
                                             @method('PUT')
                                             <input type="number" value="{{ $borrowing->book_id }}" name="book_id" hidden>
                                             <input type="number" value="{{ $borrowing->user_id }}" name="user_id" hidden>
+                                            @if($borrowing->propose_return)
+                                            Anda sudah mengajukan pengembalian, menunggu pegawai untuk menyetujui
+                                            @else
                                             <button type="submit" class="btn btn-sm btn-success">AJUKAN PENGEMBALIAN</button>
+                                            @endif
                                         </form>
                                     </td>
                                 </tr>

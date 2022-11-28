@@ -21,7 +21,8 @@
 
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                        <table class="table table-bordered mt-1">
+                        <h3 class="text-center">Daftar Pengajuan Peminjaman Buku</h3>
+                        <table class="table table-bordered mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">user_id</th>
@@ -34,7 +35,7 @@
                             <tbody>
                                 @forelse ($borrowings as $borrowing)
                                 <tr>
-                                    <td>{{ $borrowing->user_id }}</td>
+                                    <td>{{ $borrowing->user_nim }}</td>
                                     <td>{{ $borrowing->book_id }}</td>
                                     <td>{{ $borrowing->date }}</td>
                                     <td>{{ $borrowing->date_return }}</td>
@@ -44,13 +45,14 @@
                                             @method('PUT')
                                             <input type="number" value="{{ $borrowing->book_id }}" name="book_id" hidden>
                                             <input type="number" value="{{ $borrowing->user_id }}" name="user_id" hidden>
+                                            <input type="number" value="{{ $borrowing->user_nim }}" name="user_nim" hidden>
                                             <button type="submit" class="btn btn-sm btn-success">SETUJUI PEMINJAMAN</button>
                                         </form>
                                     </td>
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td class="text-center text-mute" colspan="4">Data tidak tersedia</td>
+                                    <td class="text-center text-mute" colspan="5">Data tidak tersedia</td>
                                 </tr>
                                 @endforelse
                             </tbody>

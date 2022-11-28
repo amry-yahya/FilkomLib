@@ -20,11 +20,13 @@
 
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
+                        <h3 class="text-center">Daftar Pengajuan Peminjaman Buku</h3>
+                        
                         @can('create books', Book::class)
                         <a href="{{ route('book.create') }}" class="btn btn-md btn-success mb-3 float-right">Tambah Buku</a>
                         @endcan
 
-                        <table class="table table-bordered mt-1">
+                        <table class="table table-bordered mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">Kode</th>
@@ -57,6 +59,7 @@
                                                 @csrf
                                                 <input type="number" value="{{ $book->id }}" name="book_id" hidden>
                                                 <input type="number" value="{{ auth()->user()->id }}" name="user_id" hidden>
+                                                <input type="text" value="{{ auth()->user()->nim }}" name="user_nim" hidden>
                                                 <button type="submit" class="btn btn-sm btn-success">PINJAM</button>
                                             </form>
                                             @endcan

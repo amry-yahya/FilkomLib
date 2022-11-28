@@ -24,6 +24,7 @@ class BorrowingController extends Controller
         $borrowing = Borrowing::create([
             'user_id' => $request->user_id,
             'book_id' => $request->book_id,
+            'user_nim' => $request->user_nim,
             'accept_borrow' => false,
             'accept_return' => false,
             'date' => date("Y-m-d"),
@@ -41,7 +42,7 @@ class BorrowingController extends Controller
             return redirect()
                 ->route('book.index')
                 ->with([
-                    'success' => 'Peminjaman berhasil dilakukan'
+                    'success' => 'Pengajuan peminjaman telah dilakukan, tunggu di acc pegawai dan cek Peminjaman Saya'
                 ]);
         } else {
             return redirect()
@@ -60,6 +61,7 @@ class BorrowingController extends Controller
         $borrowing->update([
             'user_id' => $request->user_id,
             'book_id' => $request->book_id,
+            'user_nim' => $request->user_nim,
             'accept_borrow' => true,
             'accept_return' => false,
             'date' => date("Y-m-d"),

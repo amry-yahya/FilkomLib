@@ -20,22 +20,24 @@
 
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-
-                        <table class="table table-bordered mt-1">
+                        <h3 class="text-center">Daftar Pengajuan Peminjaman Buku</h3>
+                        <table class="table table-bordered mt-3">
                             <thead>
                                 <tr>
-                                    <th scope="col">user_id</th>
+                                    <th scope="col">NIM</th>
                                     <th scope="col">book_id</th>
-                                    <th scope="col">setujui peminjaman</th>
+                                    <th scope="col">tanggal peminjaman</th>
+                                    <th scope="col">deadline pengembalian</th>
                                     <th scope="col">aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($returns as $return)
                                     <tr>
-                                        <td>{{ $return->user_id }}</td>
+                                        <td>{{ $return->user_nim }}</td>
                                         <td>{{ $return->book_id }}</td>
-                                        <td>{{ $return->accept_borrow }}</td>
+                                        <td>{{ $return->date }}</td>
+                                        <td>{{ $return->date_return }}</td>
                                         <td>
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                 action="{{ route('return.destroy', $return->id) }}" method="POST">
@@ -51,7 +53,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td class="text-center text-mute" colspan="4">Data return tidak tersedia</td>
+                                        <td class="text-center text-mute" colspan="5">Data tidak tersedia</td>
                                     </tr>
                                 @endforelse
                             </tbody>

@@ -26,7 +26,7 @@ class MyBorrowingController extends Controller
 
         if ($borrowing) {
             return redirect()
-                ->route('borrowing.index')
+                ->route('myborrowing.index')
                 ->with([
                     'success' => 'borrowing has been updated successfully'
                 ]);

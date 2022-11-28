@@ -8,7 +8,7 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 
-class PermissionDemoSeeder extends Seeder
+class PermissionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -38,6 +38,7 @@ class PermissionDemoSeeder extends Seeder
         $user = User::factory()->create([
             'name' => 'Example admin user',
             'email' => 'admin@email.com',
+            'nim' => '205150200111064',
             'password' => bcrypt('soloplayer')
         ]);
         $user->assignRole($adminRole);
@@ -45,6 +46,7 @@ class PermissionDemoSeeder extends Seeder
         $user = User::factory()->create([
             'name' => 'Example user user',
             'email' => 'user@email.com',
+            'nim' => '205150200111065',
             'password' => bcrypt('soloplayer')
         ]);
         $user->assignRole($userRole);
