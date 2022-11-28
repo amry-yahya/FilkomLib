@@ -20,7 +20,7 @@
 
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
-                        <h3 class="text-center">Daftar Pengajuan Peminjaman Buku</h3>
+                        <h3 class="text-center">Daftar Pengajuan Pengembalian Buku</h3>
                         <table class="table table-bordered mt-3">
                             <thead>
                                 <tr>

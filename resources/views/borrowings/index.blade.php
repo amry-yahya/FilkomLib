@@ -25,7 +25,7 @@
                         <table class="table table-bordered mt-3">
                             <thead>
                                 <tr>
-                                    <th scope="col">user_id</th>
+                                    <th scope="col">NIM</th>
                                     <th scope="col">book_id</th>
                                     <th scope="col">tanggal peminjaman</th>
                                     <th scope="col">deadline pengembalian</th>
@@ -47,6 +47,8 @@
                                             <input type="number" value="{{ $borrowing->user_id }}" name="user_id" hidden>
                                             <input type="number" value="{{ $borrowing->user_nim }}" name="user_nim" hidden>
                                             <button type="submit" class="btn btn-sm btn-success">SETUJUI PEMINJAMAN</button>
+                                            <a href="{{ route('user.show', $borrowing->user_id) }}"
+                                                class="btn btn-sm btn-primary">LIHAT PROFIL</a>
                                         </form>
                                     </td>
                                 </tr>
