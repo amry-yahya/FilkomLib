@@ -49,6 +49,13 @@
                         </li>
                     </ul>
                     @endcan
+                    @can('borrow books', Borrowing::class)
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('/myborrowing') }}">Peminjaman Saya</a>
+                        </li>
+                    </ul>
+                    @endcan
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
