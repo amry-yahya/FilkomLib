@@ -25,10 +25,10 @@
                             <thead>
                                 <tr>
                                     <th scope="col">NIM</th>
-                                    <th scope="col">book_id</th>
-                                    <th scope="col">tanggal peminjaman</th>
-                                    <th scope="col">deadline pengembalian</th>
-                                    <th scope="col">aksi</th>
+                                    <th scope="col">Kode Buku</th>
+                                    <th scope="col">Tanggal Peminjaman</th>
+                                    <th scope="col">Deadline Pengembalian</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,7 +44,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 @if ($return->propose_return)
-                                                <button type="submit" class="btn btn-sm btn-success">SETUJUI PENGEMBALIAN</button>
+                                                <button type="submit" class="btn btn-sm btn-success" onclick="return confirm('Apakah Anda Yakin ?');">SETUJUI PENGEMBALIAN</button>
                                                 @else 
                                                 Pengembalian belum diajukan
                                                 @endif

@@ -37,14 +37,14 @@ class BookController extends Controller
             return redirect()
                 ->route('book.index')
                 ->with([
-                    'success' => 'New book has been created successfully'
+                    'success' => 'Data Buku Berhasil Ditambahkan'
                 ]);
         } else {
             return redirect()
                 ->back()
                 ->withInput()
                 ->with([
-                    'error' => 'Some problem occurred, please try again'
+                    'error' => 'Terjadi Error'
                 ]);
         }
     }
@@ -75,14 +75,14 @@ class BookController extends Controller
             return redirect()
                 ->route('book.index')
                 ->with([
-                    'success' => 'book has been updated successfully'
+                    'success' => 'Data Buku Telah Diperbarui'
                 ]);
         } else {
             return redirect()
                 ->back()
                 ->withInput()
                 ->with([
-                    'error' => 'Some problem has occured, please try again'
+                    'error' => 'Terjadi Error'
                 ]);
         }
     }
@@ -95,13 +95,13 @@ class BookController extends Controller
             return redirect()
                 ->route('book.index')
                 ->with([
-                    'success' => 'book has been deleted successfully'
+                    'success' => 'Buku Telah Dihapus'
                 ]);
         } else {
             return redirect()
                 ->route('book.index')
                 ->with([
-                    'error' => 'Some problem has occurred, please try again'
+                    'error' => 'Terjadi Error'
                 ]);
         }
     }

@@ -39,7 +39,7 @@ class PermissionSeeder extends Seeder
 
 
         $user = User::factory()->create([
-            'name' => 'Example admin user',
+            'name' => 'Pegawai Perpustakaan',
             'email' => 'admin@email.com',
             'nim' => '205150200111064',
             'password' => bcrypt('soloplayer')
@@ -47,7 +47,7 @@ class PermissionSeeder extends Seeder
         $user->assignRole($adminRole);
 
         $user = User::factory()->create([
-            'name' => 'Example user user',
+            'name' => 'Mahasiswa',
             'email' => 'user@email.com',
             'nim' => '205150200111065',
             'password' => bcrypt('soloplayer')

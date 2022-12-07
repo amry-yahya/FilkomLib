@@ -60,7 +60,8 @@
                                                 <input type="number" value="{{ $book->id }}" name="book_id" hidden>
                                                 <input type="number" value="{{ auth()->user()->id }}" name="user_id" hidden>
                                                 <input type="text" value="{{ auth()->user()->nim }}" name="user_nim" hidden>
-                                                <button type="submit" class="btn btn-sm btn-success">PINJAM</button>
+                                                <input type="text" value="{{ $book->code }}" name="book_code" hidden>
+                                                <button type="submit" class="btn btn-sm btn-success" onclick="return confirm('Apakah Anda Yakin ?');">PINJAM</button>
                                             </form>
                                             @endcan
                                         </td>

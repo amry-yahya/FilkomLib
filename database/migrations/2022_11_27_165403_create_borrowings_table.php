@@ -19,6 +19,7 @@ class CreateBorrowingsTable extends Migration
             $table->string("user_id");
             $table->string("book_id");
             $table->string("user_nim");
+            $table->string("book_code");
             $table->boolean("accept_borrow");
             $table->boolean("accept_return");
             $table->date("date");

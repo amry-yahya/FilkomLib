@@ -26,6 +26,7 @@ class BorrowingController extends Controller
             'user_id' => $request->user_id,
             'book_id' => $request->book_id,
             'user_nim' => $request->user_nim,
+            'book_code' => $request->book_code,
             'accept_borrow' => false,
             'accept_return' => false,
             'date' => date("Y-m-d"),
@@ -74,14 +75,14 @@ class BorrowingController extends Controller
             return redirect()
                 ->route('borrowing.index')
                 ->with([
-                    'success' => 'borrowing has been updated successfully'
+                    'success' => 'Peminjaman telah Disetujui'
                 ]);
         } else {
             return redirect()
                 ->back()
                 ->withInput()
                 ->with([
-                    'error' => 'Some problem has occured, please try again'
+                    'error' => 'Terjadi Error'
                 ]);
         }
     }

@@ -27,13 +27,13 @@ class ReturnController extends Controller
             return redirect()
                 ->route('return.index')
                 ->with([
-                    'success' => 'borrowing has been deleted successfully'
+                    'success' => 'Pengembalian telah Disetujui'
                 ]);
         } else {
             return redirect()
                 ->route('return.index')
                 ->with([
-                    'error' => 'Some problem has occurred, please try again'
+                    'error' => 'Terjadi Error'
                 ]);
         }
     }

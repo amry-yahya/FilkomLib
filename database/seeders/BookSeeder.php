@@ -19,8 +19,8 @@ class BookSeeder extends Seeder
         for ($i=0; $i < 10; $i++) { 
             $book = Book::create([
                 'code' => "F-$i",
-                'title' => "title-$i",
-                'writer' => "writer-$i",
+                'title' => "Title-$i",
+                'writer' => "Writer-$i",
                 'year' => $i+2000,
                 'isBorrowed' => false,
             ]);

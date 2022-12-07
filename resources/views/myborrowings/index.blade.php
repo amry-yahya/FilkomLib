@@ -23,18 +23,18 @@
                         <table class="table table-bordered mt-1">
                             <thead>
                                 <tr>
-                                    <th scope="col">user_id</th>
-                                    <th scope="col">book_id</th>
-                                    <th scope="col">tanggal peminjaman</th>
-                                    <th scope="col">deadline pengembalian</th>
-                                    <th scope="col">aksi</th>
+                                    <th scope="col">NIM</th>
+                                    <th scope="col">Kode Buku</th>
+                                    <th scope="col">Tanggal Peminjaman</th>
+                                    <th scope="col">Deadline Pengembalian</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($borrowings as $borrowing)
                                 <tr>
-                                    <td>{{ $borrowing->user_id }}</td>
-                                    <td>{{ $borrowing->book_id }}</td>
+                                    <td>{{ $borrowing->user_nim }}</td>
+                                    <td>{{ $borrowing->book_code }}</td>
                                     <td>{{ $borrowing->date }}</td>
                                     <td>{{ $borrowing->date_return }}</td>
                                     <td>
