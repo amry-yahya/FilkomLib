@@ -19,12 +19,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url('http://127.0.0.1:8000/background.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #161853;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'FilkomLib') }}
+                <a class="navbar-brand" href="{{ url('/') }}" style="color: white; font-weight: bold">
+                    <img src="{{URL::asset('/logo_filkom.png')}}" style="height: 20px;">
+                    FilkomLib
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -35,26 +36,26 @@
                     @can('view books', Book::class)
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('/book') }}">Buku</a>
+                            <a class="nav-link" href="{{ url('/book') }}" style="color: white">Buku</a>
                         </li>
                     </ul>
                     @endcan
                     @can('manage borrowings', Borrowing::class)
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('/borrowing') }}">Peminjaman</a>
+                            <a class="nav-link" href="{{ url('/borrowing') }}" style="color: white">Peminjaman</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('/return') }}">Pengembalian</a>
+                            <a class="nav-link" href="{{ url('/return') }}" style="color: white">Pengembalian</a>
                         </li>
                     </ul>
                     @endcan
                     @can('borrow books', Borrowing::class)
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('/myborrowing') }}">Peminjaman Saya</a>
+                            <a class="nav-link" href="{{ url('/myborrowing') }}" style="color: white">Peminjaman Saya</a>
                         </li>
                     </ul>
                     @endcan
@@ -64,18 +65,18 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}" style="color: white">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" style="color: white">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="color: white">
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -97,9 +98,17 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" style="width: 100%">
             @yield('content')
         </main>
+
+        {{-- <div style="position: ; bottom: 0%">
+            <footer style="position: relative; bottom: 0%; width: 100%; background-color: #161853;color: white;align-content: center; padding: 10p">
+            <div style="text-align: center; padding: 10px" >
+                FILKOM UB - © 2022 All Rights Reserved by Kelompok 10 RPL D
+            </div>
+            </footer>
+        </div> --}}
     </div>
 </body>
 </html>
