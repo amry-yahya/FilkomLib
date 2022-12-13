@@ -20,6 +20,8 @@
 
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
+                        <h3 class="text-center">Daftar Pengajuan Pengembalian Buku</h3>
+
                         <table class="table table-bordered mt-1">
                             <thead>
                                 <tr>

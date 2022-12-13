@@ -52,6 +52,5 @@ class PermissionSeeder extends Seeder
             'nim' => '205150200111065',
             'password' => bcrypt('soloplayer')
         ]);
-        $user->assignRole($userRole);
     }
 }

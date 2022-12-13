@@ -35,7 +35,7 @@
                                 @forelse ($returns as $return)
                                     <tr>
                                         <td>{{ $return->user_nim }}</td>
-                                        <td>{{ $return->book_id }}</td>
+                                        <td>{{ $return->book_code }}</td>
                                         <td>{{ $return->date }}</td>
                                         <td>{{ $return->date_return }}</td>
                                         <td>

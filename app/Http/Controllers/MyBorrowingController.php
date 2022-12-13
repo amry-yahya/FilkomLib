@@ -28,7 +28,7 @@ class MyBorrowingController extends Controller
             return redirect()
                 ->route('myborrowing.index')
                 ->with([
-                    'success' => 'borrowing has been updated successfully'
+                    'success' => 'Pengajuan Telah Dikirim, Tunggu ACC dari Pegawai'
                 ]);
         } else {
             return redirect()
